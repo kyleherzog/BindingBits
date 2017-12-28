@@ -1,6 +1,6 @@
 # Binding Bits
 
-[![Build status](https://ci.appveyor.com/api/projects/status/..imageidhere..?svg=true)](https://ci.appveyor.com/project/kyleherzog/bindingbits)
+[![Build status](https://ci.appveyor.com/api/projects/status/gmvrjms5y52fl8gw?svg=true)](https://ci.appveyor.com/project/kyleherzog/bindingbits)
 
 This library is available from [NuGet.org](https://www.nuget.org/packages/BindingBits/)
 or download from the [CI build feed](https://ci.appveyor.com/nuget/BindingBits).
