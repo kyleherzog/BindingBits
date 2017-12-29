@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BindingBits.Tests.Models
 {
@@ -11,15 +7,9 @@ namespace BindingBits.Tests.Models
     {
         public const string DefaultStringValue = "default value";
 
-        public ICollection<string> PropertiesChanged { get; } = new List<string>();
-
-        protected override void RaisePropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            base.RaisePropertyChanged(propertyName);
-            PropertiesChanged.Add(propertyName);
-        }
-
         private bool _boolProperty;
+
+        private string _stringProperty = DefaultStringValue;
 
         public bool BoolProperty
         {
@@ -33,7 +23,19 @@ namespace BindingBits.Tests.Models
             }
         }
 
-        private string _stringProperty = DefaultStringValue;
+        public bool BoolPropertyNoBacking
+        {
+            get
+            {
+                return Get<bool>();
+            }
+            set
+            {
+                Set(value);
+            }
+        }
+
+        public ICollection<string> PropertiesChanged { get; } = new List<string>();
 
         public string StringProperty
         {
@@ -41,10 +43,30 @@ namespace BindingBits.Tests.Models
             {
                 return _stringProperty;
             }
+
             set
             {
                 Set(ref _stringProperty, value);
             }
+        }
+
+        public string StringPropertyNoBacking
+        {
+            get
+            {
+                return Get<string>();
+            }
+
+            set
+            {
+                Set(value);
+            }
+        }
+
+        protected override void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            base.RaisePropertyChanged(propertyName);
+            PropertiesChanged.Add(propertyName);
         }
     }
 }
