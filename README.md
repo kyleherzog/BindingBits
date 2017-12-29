@@ -16,10 +16,43 @@ See the [changelog](CHANGELOG.md) for changes and roadmap.
 ### ObservableObject
 A base class implementing INotifyPropertyChanged, simplifying implementing this critical interface. 
 
-#### ObservableObject Methods
+#### ObservableObject Properties Using Backing Fields
 
-##### bool Set\<T\>(ref T field, T value, string propertyName) 
-Sets the field to the value specified and if changed, raises PropertyChanged event with the propertyName specified.  If no property name is specified then the calling property name is used.
+If a property in a class that inherits from ObservableObject has a private member setup as a backing field, the Set method can be used, passing in the backing field by reference.  If the value has changed, PropertyChanged will be raised.
+
+```c#
+private bool _isCool;
+
+public bool IsCool
+{
+	get
+	{
+		return _isCool;
+	}
+	set
+	{
+		Set(ref _isCool, value);
+	}
+}
+```
+
+#### ObservableObject Properties Without Backing Fields
+The ObservableObject base class can also be used without setting up property backing fields.  This just requires using the Get\<T\> method, and eliminates the need to pass in a variable by reference when calling Set.
+
+```c#
+public bool IsHot
+{
+	get
+	{
+		return Get<bool>();
+	}
+	set
+	{
+		Set(value);
+	}
+}
+```
+
 
 ## License
 [Apache 2.0](LICENSE)
