@@ -9,6 +9,7 @@
     <PackageProjectUrl>https://github.com/kyleherzog/BindingBits</PackageProjectUrl>
     <RepositoryUrl>https://github.com/kyleherzog/BindingBits</RepositoryUrl>
     <PackageTags>ObservableObject BindingBase Binding INotifyPropertyChanged MVVM</PackageTags>
+    <Description>A .NET Standard class library with helpers to assist with bindings in an MVVM environment.</Description>
   </PropertyGroup>
 
   <ItemGroup>
