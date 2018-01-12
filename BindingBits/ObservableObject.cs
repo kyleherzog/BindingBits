@@ -1,46 +1,55 @@
-﻿using System;
+﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace BindingBits
 {
     public abstract class ObservableObject : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        private ConcurrentDictionary<string, object> backingFieldValues = new ConcurrentDictionary<string, object>();
 
-        private Dictionary<string, object> backingFieldValues = new Dictionary<string, object>();
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected T Get<T>([CallerMemberName] string propertyName = null)
         {
-            if (backingFieldValues.ContainsKey(propertyName))
-            {
-                return (T)backingFieldValues[propertyName];
-            }
-            else
-            {
-                return default(T);
-            }
+            return (T)backingFieldValues.GetOrAdd(propertyName, default(T));
+        }
+
+        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         protected bool Set<T>(T value, [CallerMemberName] string propertyName = null)
         {
-            if (! backingFieldValues.ContainsKey(propertyName))
+            var valueChanged = false;
+            backingFieldValues.AddOrUpdate(
+            propertyName,
+            (k) =>
             {
-                backingFieldValues.Add(propertyName, default(T));
+                valueChanged = !EqualityComparer<T>.Default.Equals(default(T), (T)value);
+                return value;
+            }, (k, original) =>
+            {
+                valueChanged = !EqualityComparer<T>.Default.Equals((T)original, (T)value);
+                return value;
+            });
+
+            if (valueChanged)
+            {
+                RaisePropertyChanged(propertyName);
+                return true;
             }
-
-            T field = (T)backingFieldValues[propertyName];
-            var result = Set(ref field, value, propertyName);
-            backingFieldValues[propertyName] = field;
-            return result;
-
+            else
+            {
+                return false;
+            }
         }
 
         protected bool Set<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {
-            if(EqualityComparer<T>.Default.Equals(field, value))
+            if (EqualityComparer<T>.Default.Equals(field, value))
             {
                 return false;
             }
@@ -51,12 +60,5 @@ namespace BindingBits
                 return true;
             }
         }
-
-        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-
     }
 }
