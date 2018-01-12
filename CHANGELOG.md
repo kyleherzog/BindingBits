@@ -7,6 +7,11 @@
 These are the changes to each version that has been released
 on NuGet.org.
 
+## 1.2
+**2018-1-12**
+
+- [x] Bug fixes for multi-threading
+
 ## 1.1
 **2017-12-29**
 
