@@ -49,7 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\TestObservableObject.cs" />
-    <Compile Include="ObservableObjectTests.cs" />
+    <Compile Include="ObservableObjectTests\SetWithNoBackingFieldShould.cs" />
+    <Compile Include="ObservableObjectTests\GetShould.cs" />
+    <Compile Include="ObservableObjectTests\SetWithBackingFieldShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
