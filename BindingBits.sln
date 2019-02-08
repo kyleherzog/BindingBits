@@ -5,14 +5,14 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BindingBits", "BindingBits\BindingBits.csproj", "{055A7059-DB40-40A8-B919-B60556D4E01E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingBits.Tests", "BindingBits.Tests\BindingBits.Tests.csproj", "{27124336-0EC6-4CF5-9756-1559B269FA8E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2AE121CE-DE78-43A0-8B4F-C43E82CFD2B0}"
 	ProjectSection(SolutionItems) = preProject
 		CHANGELOG.md = CHANGELOG.md
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingBits.UnitTests", "BindingBits.UnitTests\BindingBits.UnitTests.csproj", "{27124336-0EC6-4CF5-9756-1559B269FA8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

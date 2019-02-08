@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace BindingBits.Tests.Models
+namespace BindingBits.UnitTests.Models
 {
     public class TestObservableObject : ObservableObject
     {
