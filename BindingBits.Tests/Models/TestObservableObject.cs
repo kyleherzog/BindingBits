@@ -63,9 +63,21 @@ namespace BindingBits.Tests.Models
             }
         }
 
-        protected override void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        public SimpleObject ObjectPropertyNoBacking
         {
-            base.RaisePropertyChanged(propertyName);
+            get
+            {
+                return Get<SimpleObject>();
+            }
+            set
+            {
+                Set(value);
+            }
+        }
+
+        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            base.OnPropertyChanged(propertyName);
             PropertiesChanged.Add(propertyName);
         }
     }

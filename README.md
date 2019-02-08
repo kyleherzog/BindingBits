@@ -1,9 +1,8 @@
 # Binding Bits
 
-[![Build status](https://ci.appveyor.com/api/projects/status/gmvrjms5y52fl8gw?svg=true)](https://ci.appveyor.com/project/kyleherzog/bindingbits)
+[![Build Status](https://kyleherzog.visualstudio.com/BindingBits/_apis/build/status/BindingBits?branchName=develop)](https://kyleherzog.visualstudio.com/BindingBits/_build/latest?definitionId=3&branchName=develop)
 
-This library is available from [NuGet.org](https://www.nuget.org/packages/BindingBits/)
-or download from the [CI build feed](https://ci.appveyor.com/nuget/BindingBits).
+This library is available from [NuGet.org](https://www.nuget.org/packages/BindingBits/).
 
 --------------------------
 
@@ -55,4 +54,4 @@ public bool IsHot
 
 
 ## License
-[Apache 2.0](LICENSE)
+[MIT](LICENSE)
