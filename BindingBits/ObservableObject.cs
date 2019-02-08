@@ -3,25 +3,17 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using BindingBits.Extensions;
 
 namespace BindingBits
 {
-    public static class StructExentions
-    {
-        public static bool IsDefault<T>(this T value)
-            where T : struct
-        {
-            return value.Equals(default(T));
-        }
-    }
-
     public abstract class ObservableObject : INotifyPropertyChanged
     {
-        private Lazy<List<KeyValuePair<string, object>>> backingFieldValues = new Lazy<List<KeyValuePair<string, object>>>();
-
-        protected List<KeyValuePair<string, object>> BackingFields { get => backingFieldValues.Value; }
+        private readonly Lazy<List<KeyValuePair<string, object>>> backingFieldValues = new Lazy<List<KeyValuePair<string, object>>>();
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        protected List<KeyValuePair<string, object>> BackingFields { get => backingFieldValues.Value; }
 
         protected T Get<T>([CallerMemberName] string propertyName = null)
         {
@@ -36,7 +28,7 @@ namespace BindingBits
             }
         }
 
-        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -73,7 +65,8 @@ namespace BindingBits
                 {
                     BackingFields.Add(new KeyValuePair<string, object>(propertyName, value));
                 }
-                RaisePropertyChanged(propertyName);
+
+                OnPropertyChanged(propertyName);
                 return true;
             }
         }
@@ -87,7 +80,7 @@ namespace BindingBits
             else
             {
                 field = value;
-                RaisePropertyChanged(propertyName);
+                OnPropertyChanged(propertyName);
                 return true;
             }
         }
