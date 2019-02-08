@@ -1,8 +1,8 @@
-﻿using BindingBits.Tests.Models;
+﻿using BindingBits.UnitTests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
-namespace BindingBits.Tests.ObservableObjectTests
+namespace BindingBits.UnitTests.ObservableObjectTests
 {
     [TestClass]
     public class SetGivenNoFieldPassedShould
