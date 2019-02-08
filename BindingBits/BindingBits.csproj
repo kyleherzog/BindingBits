@@ -1,9 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <PackageVersion>1.1.0</PackageVersion>
+    <ApplicationVersion>1.2.0</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <Version>1.2.0</Version>
     <Authors>Kyle Herzog</Authors>
     <PackageLicenseUrl>https://raw.githubusercontent.com/kyleherzog/BindingBits/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/kyleherzog/BindingBits</PackageProjectUrl>

@@ -63,6 +63,18 @@ namespace BindingBits.Tests.Models
             }
         }
 
+        public SimpleObject ObjectPropertyNoBacking
+        {
+            get
+            {
+                return Get<SimpleObject>();
+            }
+            set
+            {
+                Set(value);
+            }
+        }
+
         protected override void RaisePropertyChanged([CallerMemberName] string propertyName = null)
         {
             base.RaisePropertyChanged(propertyName);

@@ -48,6 +48,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MetricTests\MemoryUsage.cs" />
+    <Compile Include="MetricTests\ThreadHandling.cs" />
+    <Compile Include="Models\SimpleObject.cs" />
     <Compile Include="Models\TestObservableObject.cs" />
     <Compile Include="ObservableObjectTests\SetWithNoBackingFieldShould.cs" />
     <Compile Include="ObservableObjectTests\GetShould.cs" />
