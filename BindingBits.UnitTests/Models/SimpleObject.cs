@@ -1,4 +1,4 @@
-﻿namespace BindingBits.Tests.Models
+﻿namespace BindingBits.UnitTests.Models
 {
     public class SimpleObject
     {

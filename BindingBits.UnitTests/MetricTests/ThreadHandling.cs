@@ -1,10 +1,10 @@
-﻿using BindingBits.Tests.Models;
+﻿using BindingBits.UnitTests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace BindingBits.Tests.MetricTests
+namespace BindingBits.UnitTests.MetricTests
 {
     [TestClass]
     public class ThreadHandling
