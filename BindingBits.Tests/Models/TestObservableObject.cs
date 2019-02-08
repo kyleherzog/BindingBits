@@ -75,9 +75,9 @@ namespace BindingBits.Tests.Models
             }
         }
 
-        protected override void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            base.RaisePropertyChanged(propertyName);
+            base.OnPropertyChanged(propertyName);
             PropertiesChanged.Add(propertyName);
         }
     }
