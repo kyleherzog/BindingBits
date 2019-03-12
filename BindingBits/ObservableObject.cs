@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using BindingBits.Extensions;
@@ -13,6 +14,7 @@ namespace BindingBits
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        [NotMapped]
         protected List<KeyValuePair<string, object>> BackingFields { get => backingFieldValues.Value; }
 
         protected T Get<T>([CallerMemberName] string propertyName = null)
