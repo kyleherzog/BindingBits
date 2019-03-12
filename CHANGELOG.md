@@ -8,8 +8,9 @@ These are the changes to each version that has been released
 on NuGet.org.
 
 ## 1.3
-**2019-2-8**
+**2019-3-12**
 - [x] Optimized resource utilization 
+- [x] Simple.OData.Client compatibility fix 
 
 ## 1.2
 **2018-1-12**
