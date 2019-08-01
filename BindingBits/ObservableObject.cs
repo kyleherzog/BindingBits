@@ -19,14 +19,18 @@ namespace BindingBits
 
         protected T Get<T>([CallerMemberName] string propertyName = null)
         {
-            var matchingItem = BackingFields.FirstOrDefault(x => x.Key == propertyName);
-            if (matchingItem.IsDefault())
+            lock (BackingFields)
             {
-                return default(T);
-            }
-            else
-            {
-                return (T)matchingItem.Value;
+                var matchingItem = BackingFields.FirstOrDefault(x => x.Key == propertyName);
+
+                if (matchingItem.IsDefault())
+                {
+                    return default(T);
+                }
+                else
+                {
+                    return (T)matchingItem.Value;
+                }
             }
         }
 
