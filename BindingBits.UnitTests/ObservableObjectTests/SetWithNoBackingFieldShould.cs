@@ -1,11 +1,11 @@
-﻿using BindingBits.UnitTests.Models;
+﻿using System.Linq;
+using BindingBits.UnitTests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace BindingBits.UnitTests.ObservableObjectTests
 {
     [TestClass]
-    public class SetGivenNoFieldPassedShould
+    public class SetWithNoBackingFieldShould
     {
         [TestMethod]
         public void NotRaisePropertyChangedWhenBoolPropertyValueNotChangedFromDefault()
@@ -23,7 +23,7 @@ namespace BindingBits.UnitTests.ObservableObjectTests
         {
             var testObject = new TestObservableObject
             {
-                StringPropertyNoBacking = default(string)
+                StringPropertyNoBacking = default(string),
             };
 
             var expectedChangedCount = 0;
@@ -48,7 +48,7 @@ namespace BindingBits.UnitTests.ObservableObjectTests
             var newValue = "a new value";
             var testObject = new TestObservableObject
             {
-                StringPropertyNoBacking = newValue
+                StringPropertyNoBacking = newValue,
             };
 
             testObject.StringPropertyNoBacking = newValue;
@@ -74,7 +74,7 @@ namespace BindingBits.UnitTests.ObservableObjectTests
         {
             var testObject = new TestObservableObject
             {
-                StringPropertyNoBacking = "a new value"
+                StringPropertyNoBacking = "a new value",
             };
 
             testObject.StringPropertyNoBacking = "another value";
@@ -100,7 +100,7 @@ namespace BindingBits.UnitTests.ObservableObjectTests
         {
             var testObject = new TestObservableObject
             {
-                StringPropertyNoBacking = "a new value"
+                StringPropertyNoBacking = "a new value",
             };
 
             var expectedChangedCount = 1;

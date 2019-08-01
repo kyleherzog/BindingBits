@@ -1,6 +1,6 @@
-﻿using BindingBits.UnitTests.Models;
+﻿using System.Linq;
+using BindingBits.UnitTests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Linq;
 
 namespace BindingBits.UnitTests.ObservableObjectTests
 {
@@ -23,7 +23,7 @@ namespace BindingBits.UnitTests.ObservableObjectTests
         {
             var testObject = new TestObservableObject
             {
-                StringProperty = TestObservableObject.DefaultStringValue
+                StringProperty = TestObservableObject.DefaultStringValue,
             };
 
             var expectedChangedCount = 0;
@@ -47,7 +47,7 @@ namespace BindingBits.UnitTests.ObservableObjectTests
         {
             var testObject = new TestObservableObject
             {
-                StringProperty = "a new value"
+                StringProperty = "a new value",
             };
 
             var expectedChangedCount = 1;

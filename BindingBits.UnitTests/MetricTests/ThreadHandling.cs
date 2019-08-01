@@ -1,8 +1,8 @@
-﻿using BindingBits.UnitTests.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using BindingBits.UnitTests.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BindingBits.UnitTests.MetricTests
 {
@@ -31,6 +31,8 @@ namespace BindingBits.UnitTests.MetricTests
             }
 
             Console.WriteLine(myObservableObject.StringPropertyNoBacking);
+
+            Assert.IsTrue(true);
         }
 
         private void SetValues(TestObservableObject myObject, int sleepCount)
@@ -41,7 +43,7 @@ namespace BindingBits.UnitTests.MetricTests
                 myObject.ObjectPropertyNoBacking = new SimpleObject
                 {
                     Id = i,
-                    Name = i.ToString()
+                    Name = $"{i}",
                 };
             }
         }

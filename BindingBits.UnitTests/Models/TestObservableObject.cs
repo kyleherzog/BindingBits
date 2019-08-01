@@ -17,6 +17,7 @@ namespace BindingBits.UnitTests.Models
             {
                 return _boolProperty;
             }
+
             set
             {
                 Set(ref _boolProperty, value);
@@ -29,6 +30,20 @@ namespace BindingBits.UnitTests.Models
             {
                 return Get<bool>();
             }
+
+            set
+            {
+                Set(value);
+            }
+        }
+
+        public SimpleObject ObjectPropertyNoBacking
+        {
+            get
+            {
+                return Get<SimpleObject>();
+            }
+
             set
             {
                 Set(value);
@@ -57,18 +72,6 @@ namespace BindingBits.UnitTests.Models
                 return Get<string>();
             }
 
-            set
-            {
-                Set(value);
-            }
-        }
-
-        public SimpleObject ObjectPropertyNoBacking
-        {
-            get
-            {
-                return Get<SimpleObject>();
-            }
             set
             {
                 Set(value);
