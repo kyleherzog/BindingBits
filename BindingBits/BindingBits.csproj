@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
     <ApplicationVersion>1.4.0</ApplicationVersion>
     <ApplicationRevision>0</ApplicationRevision>
     <Version>1.4.0</Version>
