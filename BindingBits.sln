@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BindingBits", "BindingBits\BindingBits.csproj", "{055A7059-DB40-40A8-B919-B60556D4E01E}"
 EndProject
@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingBits.UnitTests", "BindingBits.UnitTests\BindingBits.UnitTests.csproj", "{27124336-0EC6-4CF5-9756-1559B269FA8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BindingBits.UnitTests", "BindingBits.UnitTests\BindingBits.UnitTests.csproj", "{BA2EED20-0E27-46B3-97E9-9055A8BE2ADF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +24,10 @@ Global
 		{055A7059-DB40-40A8-B919-B60556D4E01E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{055A7059-DB40-40A8-B919-B60556D4E01E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{055A7059-DB40-40A8-B919-B60556D4E01E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{27124336-0EC6-4CF5-9756-1559B269FA8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27124336-0EC6-4CF5-9756-1559B269FA8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27124336-0EC6-4CF5-9756-1559B269FA8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27124336-0EC6-4CF5-9756-1559B269FA8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA2EED20-0E27-46B3-97E9-9055A8BE2ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA2EED20-0E27-46B3-97E9-9055A8BE2ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA2EED20-0E27-46B3-97E9-9055A8BE2ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA2EED20-0E27-46B3-97E9-9055A8BE2ADF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
