@@ -7,6 +7,10 @@
 These are the changes to each version that has been released
 on NuGet.org.
 
+## 1.4
+**2019-8-1**
+- [x] Bug fixes for muli-threading
+
 ## 1.3
 **2019-3-12**
 - [x] Optimized resource utilization 

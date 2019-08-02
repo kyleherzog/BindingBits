@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BindingBits</name>
+    </assembly>
+    <members>
+        <member name="T:BindingBits.Extensions.StructExtensions">
+            <summary>
+            Provides extension methods for strucs.
+            </summary>
+        </member>
+        <member name="M:BindingBits.Extensions.StructExtensions.IsDefault``1(``0)">
+            <summary>
+            Checks to see if a given struct value is the default value of the struct.
+            </summary>
+            <typeparam name="T">The struct <see cref="T:System.Type"/>.</typeparam>
+            <param name="value">The value to compare against the default struct value.</param>
+            <returns><c>true</c> if the value is the default value of the struct, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="T:BindingBits.ObservableObject">
+            <summary>
+            A base clas to facilitate implementing INotifyPropertyChanged.
+            </summary>
+        </member>
+        <member name="E:BindingBits.ObservableObject.PropertyChanged">
+            <summary>
+            Notifies clients that a property value has changed.
+            </summary>
+        </member>
+        <member name="P:BindingBits.ObservableObject.BackingFields">
+            <summary>
+            Gets a list of property values that are stored when setting a property without passing a field to set as a parameter.
+            </summary>
+        </member>
+        <member name="M:BindingBits.ObservableObject.Get``1(System.String)">
+            <summary>
+            Gets the specified property value from the BackingFields.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type"/> of the property value to be retrieved.</typeparam>
+            <param name="propertyName">The name of the property to retrieve.</param>
+            <returns>The value in the BackingFields stored with the given property name.</returns>
+        </member>
+        <member name="M:BindingBits.ObservableObject.OnPropertyChanged(System.String)">
+            <summary>
+            Called when a property value changes.
+            </summary>
+            <param name="propertyName">Name of the property that changed.</param>
+        </member>
+        <member name="M:BindingBits.ObservableObject.Set``1(``0,System.String)">
+            <summary>
+            Saves a value into the BackingFields with a key value of the given property name. If the property value changed, OnPropertyChanged will be called.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type"/> of the value being saved.</typeparam>
+            <param name="value">The property value object being saved.</param>
+            <param name="propertyName">The property name.</param>
+            <returns><c>true</c> if the property value changed, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:BindingBits.ObservableObject.Set``1(``0@,``0,System.String)">
+            <summary>
+            Sets the field passed in to the given value. If the value being set is different than the current value of the field, OnProperyChanged will be called.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type"/> of the value being saved.</typeparam>
+            <param name="field">The field to be set with the given value.</param>
+            <param name="value">The property value object being saved.</param>
+            <param name="propertyName">The property name.</param>
+            <returns><c>true</c> if the property value changed, otherwise <c>false</c>.</returns>
+        </member>
+    </members>
+</doc>
