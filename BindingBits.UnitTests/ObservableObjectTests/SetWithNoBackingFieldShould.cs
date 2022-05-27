@@ -2,110 +2,109 @@
 using BindingBits.UnitTests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BindingBits.UnitTests.ObservableObjectTests
+namespace BindingBits.UnitTests.ObservableObjectTests;
+
+[TestClass]
+public class SetWithNoBackingFieldShould
 {
-    [TestClass]
-    public class SetWithNoBackingFieldShould
+    [TestMethod]
+    public void NotRaisePropertyChangedWhenBoolPropertyValueNotChangedFromDefault()
     {
-        [TestMethod]
-        public void NotRaisePropertyChangedWhenBoolPropertyValueNotChangedFromDefault()
+        var testObject = new TestObservableObject();
+        testObject.BoolPropertyNoBacking = testObject.BoolPropertyNoBacking;
+
+        var expectedChangedCount = 0;
+
+        Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.BoolPropertyNoBacking)));
+    }
+
+    [TestMethod]
+    public void NotRaisePropertyChangedWhenStringPropertyNotChangedFromDefault()
+    {
+        var testObject = new TestObservableObject
         {
-            var testObject = new TestObservableObject();
-            testObject.BoolPropertyNoBacking = testObject.BoolPropertyNoBacking;
+            StringPropertyNoBacking = default(string),
+        };
 
-            var expectedChangedCount = 0;
+        var expectedChangedCount = 0;
 
-            Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.BoolPropertyNoBacking)));
-        }
+        Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.StringPropertyNoBacking)));
+    }
 
-        [TestMethod]
-        public void NotRaisePropertyChangedWhenStringPropertyNotChangedFromDefault()
+    [TestMethod]
+    public void RaisePropertyChangedOnlyOnceWhenBoolPropertyValueSetTwiceButChangedOnce()
+    {
+        var testObject = new TestObservableObject();
+        testObject.BoolPropertyNoBacking = !testObject.BoolPropertyNoBacking;
+        testObject.BoolPropertyNoBacking = testObject.BoolPropertyNoBacking;
+        var expectedChangedCount = 1;
+
+        Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.BoolPropertyNoBacking)));
+    }
+
+    [TestMethod]
+    public void RaisePropertyChangedOnlyOnceWhenStringProperySetTwiceButChangedOnce()
+    {
+        var newValue = "a new value";
+        var testObject = new TestObservableObject
         {
-            var testObject = new TestObservableObject
-            {
-                StringPropertyNoBacking = default(string),
-            };
+            StringPropertyNoBacking = newValue,
+        };
 
-            var expectedChangedCount = 0;
+        testObject.StringPropertyNoBacking = newValue;
 
-            Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.StringPropertyNoBacking)));
-        }
+        var expectedChangedCount = 1;
 
-        [TestMethod]
-        public void RaisePropertyChangedOnlyOnceWhenBoolPropertyValueSetTwiceButChangedOnce()
+        Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.StringPropertyNoBacking)));
+    }
+
+    [TestMethod]
+    public void RaisePropertyChangedTwiceWhenBoolPropertyValueChangedTwice()
+    {
+        var testObject = new TestObservableObject();
+        testObject.BoolPropertyNoBacking = !testObject.BoolPropertyNoBacking;
+        testObject.BoolPropertyNoBacking = !testObject.BoolPropertyNoBacking;
+        var expectedChangedCount = 2;
+
+        Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.BoolPropertyNoBacking)));
+    }
+
+    [TestMethod]
+    public void RaisePropertyChangedTwiceWhenStringProperyChangedTwice()
+    {
+        var testObject = new TestObservableObject
         {
-            var testObject = new TestObservableObject();
-            testObject.BoolPropertyNoBacking = !testObject.BoolPropertyNoBacking;
-            testObject.BoolPropertyNoBacking = testObject.BoolPropertyNoBacking;
-            var expectedChangedCount = 1;
+            StringPropertyNoBacking = "a new value",
+        };
 
-            Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.BoolPropertyNoBacking)));
-        }
+        testObject.StringPropertyNoBacking = "another value";
 
-        [TestMethod]
-        public void RaisePropertyChangedOnlyOnceWhenStringProperySetTwiceButChangedOnce()
+        var expectedChangedCount = 2;
+
+        Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.StringPropertyNoBacking)));
+    }
+
+    [TestMethod]
+    public void RaisePropertyChangedWhenBoolPropertyValueChangedFromDefault()
+    {
+        var testObject = new TestObservableObject();
+        testObject.BoolPropertyNoBacking = !testObject.BoolPropertyNoBacking;
+
+        var expectedChangedCount = 1;
+
+        Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.BoolPropertyNoBacking)));
+    }
+
+    [TestMethod]
+    public void RaisePropertyChangedWhenStringProperyChangedFromDefault()
+    {
+        var testObject = new TestObservableObject
         {
-            var newValue = "a new value";
-            var testObject = new TestObservableObject
-            {
-                StringPropertyNoBacking = newValue,
-            };
+            StringPropertyNoBacking = "a new value",
+        };
 
-            testObject.StringPropertyNoBacking = newValue;
+        var expectedChangedCount = 1;
 
-            var expectedChangedCount = 1;
-
-            Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.StringPropertyNoBacking)));
-        }
-
-        [TestMethod]
-        public void RaisePropertyChangedTwiceWhenBoolPropertyValueChangedTwice()
-        {
-            var testObject = new TestObservableObject();
-            testObject.BoolPropertyNoBacking = !testObject.BoolPropertyNoBacking;
-            testObject.BoolPropertyNoBacking = !testObject.BoolPropertyNoBacking;
-            var expectedChangedCount = 2;
-
-            Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.BoolPropertyNoBacking)));
-        }
-
-        [TestMethod]
-        public void RaisePropertyChangedTwiceWhenStringProperyChangedTwice()
-        {
-            var testObject = new TestObservableObject
-            {
-                StringPropertyNoBacking = "a new value",
-            };
-
-            testObject.StringPropertyNoBacking = "another value";
-
-            var expectedChangedCount = 2;
-
-            Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.StringPropertyNoBacking)));
-        }
-
-        [TestMethod]
-        public void RaisePropertyChangedWhenBoolPropertyValueChangedFromDefault()
-        {
-            var testObject = new TestObservableObject();
-            testObject.BoolPropertyNoBacking = !testObject.BoolPropertyNoBacking;
-
-            var expectedChangedCount = 1;
-
-            Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.BoolPropertyNoBacking)));
-        }
-
-        [TestMethod]
-        public void RaisePropertyChangedWhenStringProperyChangedFromDefault()
-        {
-            var testObject = new TestObservableObject
-            {
-                StringPropertyNoBacking = "a new value",
-            };
-
-            var expectedChangedCount = 1;
-
-            Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.StringPropertyNoBacking)));
-        }
+        Assert.AreEqual(expectedChangedCount, testObject.PropertiesChanged.Count(x => x == nameof(testObject.StringPropertyNoBacking)));
     }
 }
