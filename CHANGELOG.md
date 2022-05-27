@@ -7,6 +7,10 @@
 These are the changes to each version that has been released
 on NuGet.org.
 
+## 1.5
+**2022-5-27**
+- [x] Marked ObservableObject with DataContract attribute
+
 ## 1.4
 **2019-8-1**
 - [x] Bug fixes for muli-threading

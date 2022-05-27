@@ -1,87 +1,86 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace BindingBits.UnitTests.Models
+namespace BindingBits.UnitTests.Models;
+
+public class TestObservableObject : ObservableObject
 {
-    public class TestObservableObject : ObservableObject
+    public const string DefaultStringValue = "default value";
+
+    private bool boolProperty;
+
+    private string stringProperty = DefaultStringValue;
+
+    public bool BoolProperty
     {
-        public const string DefaultStringValue = "default value";
-
-        private bool _boolProperty;
-
-        private string _stringProperty = DefaultStringValue;
-
-        public bool BoolProperty
+        get
         {
-            get
-            {
-                return _boolProperty;
-            }
-
-            set
-            {
-                Set(ref _boolProperty, value);
-            }
+            return boolProperty;
         }
 
-        public bool BoolPropertyNoBacking
+        set
         {
-            get
-            {
-                return Get<bool>();
-            }
+            Set(ref boolProperty, value);
+        }
+    }
 
-            set
-            {
-                Set(value);
-            }
+    public bool BoolPropertyNoBacking
+    {
+        get
+        {
+            return Get<bool>();
         }
 
-        public SimpleObject ObjectPropertyNoBacking
+        set
         {
-            get
-            {
-                return Get<SimpleObject>();
-            }
+            Set(value);
+        }
+    }
 
-            set
-            {
-                Set(value);
-            }
+    public SimpleObject ObjectPropertyNoBacking
+    {
+        get
+        {
+            return Get<SimpleObject>();
         }
 
-        public ICollection<string> PropertiesChanged { get; } = new List<string>();
-
-        public string StringProperty
+        set
         {
-            get
-            {
-                return _stringProperty;
-            }
+            Set(value);
+        }
+    }
 
-            set
-            {
-                Set(ref _stringProperty, value);
-            }
+    public ICollection<string> PropertiesChanged { get; } = new List<string>();
+
+    public string StringProperty
+    {
+        get
+        {
+            return stringProperty;
         }
 
-        public string StringPropertyNoBacking
+        set
         {
-            get
-            {
-                return Get<string>();
-            }
+            Set(ref stringProperty, value);
+        }
+    }
 
-            set
-            {
-                Set(value);
-            }
+    public string StringPropertyNoBacking
+    {
+        get
+        {
+            return Get<string>();
         }
 
-        protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        set
         {
-            base.OnPropertyChanged(propertyName);
-            PropertiesChanged.Add(propertyName);
+            Set(value);
         }
+    }
+
+    protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        base.OnPropertyChanged(propertyName);
+        PropertiesChanged.Add(propertyName);
     }
 }
