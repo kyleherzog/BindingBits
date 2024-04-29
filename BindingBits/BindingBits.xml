@@ -6,7 +6,7 @@
     <members>
         <member name="T:BindingBits.Extensions.StructExtensions">
             <summary>
-            Provides extension methods for strucs.
+            Provides extension methods for structs.
             </summary>
         </member>
         <member name="M:BindingBits.Extensions.StructExtensions.IsDefault``1(``0)">
@@ -19,7 +19,7 @@
         </member>
         <member name="T:BindingBits.ObservableObject">
             <summary>
-            A base clas to facilitate implementing INotifyPropertyChanged.
+            A base class to facilitate implementing INotifyPropertyChanged.
             </summary>
         </member>
         <member name="E:BindingBits.ObservableObject.PropertyChanged">

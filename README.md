@@ -1,5 +1,6 @@
 # Binding Bits
 
+![NuGet](https://img.shields.io/nuget/v/BindingBits)
 [![Build Status](https://kyleherzog.visualstudio.com/BindingBits/_apis/build/status/BindingBits?branchName=develop)](https://kyleherzog.visualstudio.com/BindingBits/_build/latest?definitionId=3&branchName=develop)
 
 This library is available from [NuGet.org](https://www.nuget.org/packages/BindingBits/).

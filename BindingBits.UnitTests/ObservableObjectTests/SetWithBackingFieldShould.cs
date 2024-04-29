@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using BindingBits.UnitTests.Models;
+﻿using BindingBits.UnitTests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BindingBits.UnitTests.ObservableObjectTests;
