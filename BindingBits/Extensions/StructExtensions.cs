@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BindingBits.Extensions;
+﻿namespace BindingBits.Extensions;
 
 /// <summary>
 /// Provides extension methods for structs.

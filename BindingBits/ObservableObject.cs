@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using BindingBits.Extensions;
@@ -38,7 +35,7 @@ public abstract class ObservableObject : INotifyPropertyChanged
     {
         lock (BackingFields)
         {
-            var matchingItem = BackingFields.FirstOrDefault(x => x.Key == propertyName);
+            var matchingItem = BackingFields.Find(x => x.Key == propertyName);
 
             if (matchingItem.IsDefault())
             {
@@ -71,7 +68,7 @@ public abstract class ObservableObject : INotifyPropertyChanged
     {
         lock (BackingFields)
         {
-            var matchingItem = BackingFields.FirstOrDefault(x => x.Key == propertyName);
+            var matchingItem = BackingFields.Find(x => x.Key == propertyName);
             if (!matchingItem.IsDefault())
             {
                 // is the value being set the same as what we already have persisted?

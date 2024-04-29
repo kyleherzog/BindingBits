@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using BindingBits.UnitTests.Models;
+﻿using BindingBits.UnitTests.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BindingBits.UnitTests.MetricTests;
@@ -32,10 +29,10 @@ public class ThreadHandling
 
         Console.WriteLine(myObservableObject.StringPropertyNoBacking);
 
-        Assert.IsTrue(true);
+        Assert.IsNotNull(myObservableObject);
     }
 
-    private void SetValues(TestObservableObject myObject, int sleepCount)
+    private static void SetValues(TestObservableObject myObject, int sleepCount)
     {
         Thread.Sleep(sleepCount);
         for (var i = 0; i < 10; i++)
