@@ -5,6 +5,7 @@ These are the changes to each version that has been released on NuGet.org.
 ## 3.0
 **2024-11-14**
 - [x] Dropped support for .NET Standard 1.3
+- [x] Added .NET 8.0 target 
 
 ## 2.0
 **2024-4-29**
