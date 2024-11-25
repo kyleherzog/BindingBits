@@ -22,7 +22,7 @@ public class SetWithNoBackingFieldShould
     {
         var testObject = new TestObservableObject
         {
-            StringPropertyNoBacking = default(string),
+            StringPropertyNoBacking = default,
         };
 
         var expectedChangedCount = 0;

@@ -64,7 +64,7 @@ public class TestObservableObject : ObservableObject
         }
     }
 
-    public string StringPropertyNoBacking
+    public string? StringPropertyNoBacking
     {
         get
         {
@@ -77,8 +77,13 @@ public class TestObservableObject : ObservableObject
         }
     }
 
-    protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    protected override void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
+        if (propertyName is null)
+        {
+            throw new InvalidOperationException("A property name must be specified.");
+        }
+
         base.OnPropertyChanged(propertyName);
         PropertiesChanged.Add(propertyName);
     }

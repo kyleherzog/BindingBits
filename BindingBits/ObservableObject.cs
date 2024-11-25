@@ -12,7 +12,7 @@ namespace BindingBits;
 [DataContract]
 public abstract class ObservableObject : INotifyPropertyChanged
 {
-    private readonly Lazy<List<KeyValuePair<string, object>>> backingFieldValues = new Lazy<List<KeyValuePair<string, object>>>();
+    private readonly Lazy<List<KeyValuePair<string, object>>> backingFieldValues = new();
 
     /// <summary>
     /// Notifies clients that a property value has changed.
@@ -39,7 +39,7 @@ public abstract class ObservableObject : INotifyPropertyChanged
 
             if (matchingItem.IsDefault())
             {
-                return default(T);
+                return default;
             }
             else
             {
@@ -85,14 +85,14 @@ public abstract class ObservableObject : INotifyPropertyChanged
             else
             {
                 // is this the default value that is being set?  if so, nothing changed.
-                if (EqualityComparer<T>.Default.Equals(value, default(T)))
+                if (EqualityComparer<T>.Default.Equals(value, default))
                 {
                     return false;
                 }
             }
 
             // is this the default value that is being set?  if so, no need to persist it in the list.
-            if (!EqualityComparer<T>.Default.Equals(value, default(T)))
+            if (!EqualityComparer<T>.Default.Equals(value, default))
             {
                 BackingFields.Add(new KeyValuePair<string, object>(propertyName, value));
             }
